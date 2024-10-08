@@ -1,0 +1,16 @@
+name: CI/CD Workflow
+
+on:
+  pull_request:
+    types: [closed]
+    branches:
+      - main # Change this to your default branch
+
+jobs:
+  build:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+      # Add your build and deploy steps here
